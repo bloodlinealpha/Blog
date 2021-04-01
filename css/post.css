@@ -1,0 +1,400 @@
+body{
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica
+}
+.page-container{
+	min-height: 100vh;
+	
+}
+.content-container{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	border: 5px solid green;
+}
+.header-container{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.nav-container{
+	display: flex;
+	flex-direction: column;
+	height: 75vh;
+	background-image: url('../img/life.jpg');
+	background-size: cover;             
+    background-repeat: no-repeat;
+
+}
+.navbar-container{
+	display: flex;
+	flex-direction: row;
+}
+.nav-brand{
+	display: flex;
+	justify-content: center;
+	height: 3rem;
+	width: 40%;
+	margin-top: 2rem;
+
+}
+.brand-logo{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	padding-left:25%;
+	font-size: 1.5rem;
+	color: white;
+	font-weight: bold;
+
+}
+.navbar-items{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 2rem;
+	width: 60%;
+	margin-top: 3rem;
+}
+.nav-item{
+	display: flex;
+	flex-direction: row;
+	
+	color: white;
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+svg{
+	width: 25px;
+	height: 25px;
+	fill: white;
+
+}
+svg:hover{
+	width: 30px;
+	height: 30px;
+	
+}
+
+.nav-item:hover{
+	font-size: 1.35rem;
+	cursor: pointer;
+}
+
+
+
+.welcome-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+
+}
+.welcome-message{
+	font-size: 2.5rem;
+	color: white;
+	font-weight: bold;
+}
+
+
+
+.category-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 1rem 0 1rem 0;
+	height: 5rem;
+
+}
+.category-width{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	width: 80%;
+	
+}
+.category-button{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem 0.75rem;
+	margin-bottom: 0.5rem;
+	border-radius: 1rem;
+	border: 2px solid lightgrey;
+	font-size: 1rem;
+	color: grey;
+	box-shadow: 0 0 5px lightgrey;
+
+}
+.category-button:hover{
+	background-color: blue;
+	color: white;
+	cursor: pointer;
+	border: 2px solid blue;
+	box-shadow: 0 0 7px blue;
+}
+
+
+
+.content-rows-container{
+	display: flex;
+	flex-direction: row;
+}
+.row-1{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 75%;
+	min-height: 50vh;
+}
+
+
+
+.post-container{
+	display: flex;
+	flex-direction: column;
+	width: 75%; 
+}
+.post-header-img{
+	display: flex;
+	justify-content: center;
+}
+.post-img{
+	width: 100%;
+	height: 100%;
+}
+.post-title-container{
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	margin-top: 2rem;
+}
+.post-title{
+	font-size: 2rem;
+	font-weight: bold;
+
+}
+.post-date-container{
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	margin-top: 0.5rem;
+
+}
+.post-date{
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: grey;
+}
+.post-category-container{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-top: 0.5rem;
+}
+.post-category-button{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5rem 0.75rem;
+	margin-bottom: 0.5rem;
+	margin-right: 1rem;
+	border-radius: 1rem;
+	border: 2px solid lightgrey;
+	font-size: 1rem;
+	color: grey;
+	box-shadow: 0 0 5px lightgrey;
+}
+.post-category-button:hover{
+	background-color: blue;
+	color: white;
+	cursor: pointer;
+	border: 2px solid blue;
+	box-shadow: 0 0 7px blue;
+}
+.post-info-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 2px solid lightgrey;
+}
+.post-price, .post-location, .post-link{
+	color: grey;
+	font-weight: bold;
+	margin-bottom: 0.25rem;
+
+}
+.post-link > a{
+	word-break: break-all;
+}
+.post-intro-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-top: 1rem;
+}
+.post-intro{
+	font-size: 1.75rem;
+	font-weight: bold;
+}
+.post-intro-summary{
+	line-height: 1.5em;
+	padding: 0.5rem 0.5rem;
+
+}
+.post-box-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-top: 1rem;
+}
+.post-box{
+	font-size: 1.75rem;
+	font-weight: bold;
+}
+.post-box-summary{
+	line-height: 1.5em;
+	padding: 0.5rem 0.5rem;
+
+}
+
+.post-description-img{
+	width: 100%;
+	height: 100%;
+}
+.golden-list-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+.golden-list{
+	font-size: 1.75rem;
+	font-weight: bold;
+}
+.post-continue-container{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2rem;
+
+}
+.post-continue{
+	border: 2px solid black;
+	background-color: white;
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding:0.5rem;
+	border-radius: 0.5rem;
+}
+.post-continue:hover{
+	background-color: blue;
+	border: 2px solid blue;
+	color: white;
+	cursor: pointer;
+}
+.post-golden{
+	border: 2px solid black;
+	background-color: white;
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding:0.5rem;
+	border-radius: 0.5rem;
+}
+.post-golden:hover{
+	background-color: #FFDF00;
+	border: 2px solid #FFDF00;
+	color: white;
+	cursor: pointer;
+}
+
+
+
+
+
+
+/*recents*/
+.row-3{
+	width: 25%;
+}
+.recent-container{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	margin-top: 2.5rem;
+
+}
+.recent-title{
+	display: flex;
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+.recent-list-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+	background-color: #f8f8ff;
+}
+.recent-post{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	width: 100%;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	border-bottom: 1px solid lightgrey;
+}
+.recent-post:hover{
+	color: blue;
+	cursor: pointer;
+	border-top: 2px solid blue;
+	border-bottom: 2px solid blue;
+}
+.recent-img{
+	width: 40%;	
+}
+.recent-post-title{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+
+.footer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 5rem;
+	min-height: 5rem;
+	border-top: 1px solid lightgrey;
+
+}
+.footer-message{
+	font-size: 0.75rem;
+	color: grey;
+}

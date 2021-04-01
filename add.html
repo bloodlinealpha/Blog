@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add blog</title>
+	<link rel="stylesheet" type="text/css" href="css/add.css">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet"> 
+    <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
+
+
+</head>
+<body>
+
+	<div class="page-container">
+		<div class="content-container">
+			<div class="nav-container">
+				<div class="nav-items-container">
+					<div class="brand-container">
+						<div class="brand">Brand</div>
+					</div>
+					<div class="nav-items">
+						<div class="add">Add</div>
+						<div class="edit clickable" id="edit_post">Edit</div>
+						<div class="stats clickable">Stats</div>
+					</div>
+					<div class="logout-container">
+						<div class="logout clickable">Logout</div>
+					</div>
+				</div>
+			</div>
+			<div class="add-container">
+				<div class="add-header">
+					<h1>New Post</h1>
+				</div>
+				<div class="post-container">
+					<div class="post-content">
+						<div class="post-info">
+							<div class="description-title">
+								<h2>General</h2>
+							</div>
+							<div class="post-input">
+								<label for="title">Title:</label>
+								<input class="required" type="text" id="title" name="title">
+							</div>
+							<div class="post-input">
+								<label for="catergories">Categories:</label>
+								<select class="required" id="catergories" multiple>
+									<option>Life</option>
+									<option>Health</option>
+									<option>Wealth</option>
+									<option>Fitness</option>
+									<option>Electronics</option>
+									<option>Fun</option>
+								</select>
+								<div> (Hold Ctrl to select multiple)</div>
+							</div>
+							<div class="post-input">
+								<label for="price">Price: $</label>
+								<input class="required" type="number" id="price" name="price" min="0" step="0.01">
+							</div>
+							<div class="post-input">
+								<label for="purchased">Purchased:</label>
+								<input class="required" type="text" id="purchased" name="purchased">
+							</div>
+							<div class="post-input">
+								<label for="link">Link:</label>
+								<input class="required" type="text" id="link" name="link">
+							</div>
+							<div class="post-input">
+								<form id="main_img_form">
+									<label for="main_img">Main Img:</label>
+									<input class="required" type="file" id="main_img" name="main_img" accept="image/*">
+									
+								</form>
+							</div>
+							<div class="post-input">
+								<label for="golden_list">Golden List:</label>
+								<select class="required" id="golden_list" name="golden_list">
+									<option value="yes">Yes</option>
+									<option value="no">No</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="post-description">
+							<div class="description-title">
+								<h2>Description</h2>
+								<div class="add-section-button">
+									<button id="add_section">Add Section</button>
+								</div>
+							</div>
+							<!-- append to end here -->
+							<div class="add-section-container">
+								<div class="section-preview-container">
+									<div class="section-name"><span>1.) </span>Section Name:</div>
+									<div class="section-box">
+										<div class="description-input">
+											<input class="section-header-input" type="text" name="section_title" placeholder="Enter Title">
+										</div>
+									</div>
+									<div class="section-container">
+										<div class="ql-editor-container">
+											<div id="editor_1"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+						</div>
+						<div class="preview-button-container">
+							<button id="preview">Preview</button>
+						</div>
+					</div>
+					<div class="post-preview">
+						<div class="preview-title">Preview</div>
+						<div class="preview-outline">
+							<div class="preview-container">
+								<div class="preview-post-container">
+									<div class="post-header-img">
+										
+									</div>
+									<div class="post-title-container">
+										
+									</div>
+									<div class="post-date-container">
+										
+									</div>
+									<div class="post-category-container">
+										
+										
+									</div>
+									<div class="post-info-container">
+										
+									</div>
+									<div class="post-description-container">
+										<div class="post-description">
+											<div class="post-description-append">
+												
+											</div>
+											<div class="golden-list-container">
+												
+											</div>
+											<div class="post-continue-container">
+												
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<button id="add_blog">Add Blog</button>
+						</div>
+						<div>
+							<button id="get_blog">Get Blog</button>
+						</div>
+					</div>		
+				</div>
+			</div>
+			<div class="footer">
+				<div class="footer-message">Made by BLA Dev</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<script>
+		$(document).ready(function(){
+
+			function add_quill(editor){
+				//Add quill toolbar option
+				var toolbarOptions = [
+				  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+				  ['blockquote', 'code-block'],
+
+				  [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+				  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+				  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+				  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+				  [{ 'direction': 'rtl' }],                         // text direction
+
+				  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+				  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+				  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+				  [{ 'font': [] }],
+				  [{ 'align': [] }],
+				  ['image']
+				];
+
+				//append quill
+				
+				var quill = new Quill('#'+editor, {
+				  modules: {
+				    toolbar: toolbarOptions
+				  },
+				  theme: 'snow'
+				});
+				
+			}
+
+			var init_editor = 'editor_1'
+			add_quill(init_editor);
+			
+			//click add section
+			$('#add_section').on('click', function(){
+
+				var count_editor = eval($('.ql-editor-container').length + 1);
+				var new_editor = 'editor_'+count_editor
+				console.log(count_editor);
+
+				$('.add-section-container').append('\
+					<div id="section_'+count_editor+'" class="section-preview-container">\
+						<div class="section-name"><span>'+count_editor+'.) </span>Section Name:</div>\
+						<div class="section-remove-container">\
+							<button class="remove-button" id="remove_'+count_editor+'">Remove</button>\
+						</div>\
+						<div class="section-box">\
+							<div class="description-input">\
+								<input class="section-header-input" type="text" name="section_title" placeholder="Enter Title">\
+							</div>\
+						</div>\
+						<div class="section-container">\
+							<div class="ql-editor-container">\
+								<div id="editor_'+count_editor+'"></div>\
+							</div>\
+						</div>\
+					</div>\
+				');
+				add_quill(new_editor);
+			});
+
+			//click remove section
+			$(document).on('click', '.remove-button', function(){
+				var section_id = $(this).parent('div').parent('div').attr('id');
+				$('#'+section_id).remove();
+				$('.section-preview-container').each(function(k,v){
+					var kk = eval(k + 1);
+					$(this).attr('id', 'section_'+kk+'')
+					$(this).children('.section-name').children('span').html(''+kk+'.) ');
+					$(this).children('.section-remove-container').children('button').attr('id', 'remove_'+kk+'')
+				});
+
+			});
+
+			//scroll to center for quill editor
+			/*$(document).on('keydown', '.ql-editor', function(){
+			
+				$(this)[0].scrollIntoView({block: "end"});
+				$(this).scrollTop($(this)[0].scrollHeight);
+
+			});*/
+
+			//click preview
+			$('#preview').on('click', function(){
+				
+
+
+				console.log('Clicked Preview');
+				$('.required').each(function(k,v){
+					var val = $(this).val();
+					if (val == ""){
+						$(this).addClass('required_error');
+					}else{
+						$(this).removeClass('required_error');
+					}
+				})
+
+				var title = $('#title').val();
+
+				var d = new Date();
+				var months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sept', 'Nov', 'Dec'];
+				var month = months[d.getMonth()];
+				var day = d.getDate();
+				var year = d.getFullYear();
+				//makes an array
+				var catergories = $('#catergories').val();
+				var price = $('#price').val();
+				var purchased = $('#purchased').val();
+				var link = $('#link').val();
+				var main_img = $('#main_img').val();
+				/*console.log(main_img.split("\\").pop());*/
+				var golden_list = $('#golden_list').val();
+
+				//add to preview
+				//add main img
+				$('.post-header-img').empty();
+				$('.post-header-img').append('\
+					<img class="post-img" src="img/'+main_img.split("\\").pop()+'">\
+					');
+				//add title
+				$('.post-title-container').empty();
+				$('.post-title-container').append('\
+					<div class="post-title">'+title+'</div>\
+					');
+				//add date
+				$('.post-date-container').empty();
+				$('.post-date-container').append('\
+					<div class="post-date">Date: '+ month+' '+ day+', '+year+'</div>\
+					');
+				//add categories
+				$('.post-category-container').empty();
+				$.each(catergories, function(k,v){
+					$('.post-category-container').append('\
+						<div class="post-category-button">'+v+'</div>\
+						');
+				})
+				//add price, purchased, link
+				$('.post-info-container').empty();
+				$('.post-info-container').append('\
+					<div class="post-price">Price (CAD): $'+price+'</div>\
+					<div class="post-location">Purchased: '+purchased+'</div>\
+					<div class="post-link">\
+						Item Link: <a href="'+link+'">'+link+'</a>\
+					</div>\
+					');
+				//add sections
+				$('.post-description-append').empty();
+				$('.section-preview-container').each(function(k,v){
+					var section_title = $(this).children().children().children('.section-header-input').val();
+					var section_content = $(this).children('.section-container').children('.ql-editor-container').children('.ql-container').children('.ql-editor').html();
+					
+
+					$('.post-description-append').append('\
+						<div class="post-box-container">\
+							<div class="post-box">'+section_title+'</div>\
+							<div class="post-box-summary">'+section_content+'</div>\
+						</div>\
+						');
+					$('p > img').addClass("post-description-img");
+				});
+				//add golden list yes or no
+				$('.golden-list-container').empty();
+				$('.golden-list-container').append('\
+					<div class="golden-list">Golden List: '+golden_list+'!!</div>\
+					');
+				//post continue
+				$('.post-continue-container').empty();
+				$('.post-continue-container').append('\
+					<div class="post-golden"> Golden List</div>\
+					<div class="post-continue">Next</div>\
+					');
+
+
+				$('html, body').animate(
+				      {
+				        scrollTop: $(".post-preview").offset().top
+				      },
+				      1000 //speed
+				    );
+
+			});
+
+
+			//Submit blog to DB
+			$('#add_blog').on('click', function(){
+
+
+				var content = [];
+				$('.section-preview-container').each(function(k,v){
+					var section_title = $(this).children().children().children('.section-header-input').val();
+					var section_content = $(this).children('.section-container').children('.ql-editor-container').children('.ql-container').children('.ql-editor').html();
+
+					console.log(section_content);
+
+					content.push({title: section_title,
+										content: section_content,
+									 });
+					
+					$('p > img').addClass("post-description-img");
+				});
+				console.log(content);
+
+
+
+				var title = $('#title').val();
+
+				var d = new Date();
+				var months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sept', 'Nov', 'Dec'];
+				var month = months[d.getMonth()];
+				var day = d.getDate();
+				var year = d.getFullYear();
+				//makes an array
+				var categories = $('#catergories').val();
+				var price = $('#price').val();
+				var purchased = $('#purchased').val();
+				var link = $('#link').val();
+				/*console.log(main_img.split("\\").pop());*/
+				var golden_list = $('#golden_list').val();
+				var main_img = $('#main_img').prop('files')[0];
+
+				$.post('php/add_blog.php',{title: title,
+											categories: categories,
+											price: price,
+											purchased: purchased,
+											link: link,
+											golden_list: golden_list,
+											content: content,
+											main_img: main_img.name
+											}, function(data){
+					var results =JSON.parse(data);
+					console.log(results);
+					if(results.status == 'error'){
+						console.log("blog failed");
+					}else if(results.status == "success"){
+
+						console.log('blog success');
+
+					
+
+						//add main img
+						var file_data = $('#main_img').prop('files')[0];
+						var form_data = new FormData();
+
+						form_data.append('file', file_data);
+
+						$.ajax({
+			                url         : 'php/main_img.php',     // point to server-side PHP script 
+			                dataType    : 'text',           // what to expect back from the PHP script, if anything
+			                cache       : false,
+			                contentType : false,
+			                processData : false,
+			                data        : form_data,                         
+			                type        : 'post',
+			                success     : function(output){
+			                    alert(output);              // display response from the PHP script, if any
+			                }
+				         });
+
+						location.href = "post.html?post="+ results.id;
+						
+					}
+				});
+
+			});
+
+
+
+			//add post click
+			$('#edit_post').on('click', function(){
+				location.href = "edit.html";
+			});
+
+			
+
+
+
+
+
+
+		});
+
+
+	</script>
+	
+
+
+</body>
+</html>

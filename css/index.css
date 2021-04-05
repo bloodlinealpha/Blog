@@ -264,6 +264,9 @@ svg:hover{
 	height: 4.5em;
 	overflow: hidden;
 }
+p{
+	margin: 0;
+}
 .row-3{
 	width: 25%;
 }

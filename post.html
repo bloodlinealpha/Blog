@@ -58,7 +58,7 @@
 								</div>
 								<div class="post-continue-container">
 									<div class="post-golden"> Golden List</div>
-									<div class="post-continue">Next</div>
+									<div class="post-continue">Home</div>
 								</div>
 								
 							</div>
@@ -196,6 +196,16 @@
 			//category click
 			$(document).on('click', '.category-button', function(){
 				location.href = 'index.html?category='+ $(this).html();
+			});
+
+			//Golden List Click
+			$(document).on('click', '.post-golden', function(){
+				location.href = 'goldenlist.html';
+			});
+
+			//home Click
+			$(document).on('click', '.post-continue', function(){
+				location.href = 'index.html';
 			});
 
 
